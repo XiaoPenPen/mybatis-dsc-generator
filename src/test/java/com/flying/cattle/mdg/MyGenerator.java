@@ -30,9 +30,9 @@ public class MyGenerator {
 		public static final String PASS = "root";
 		public static final String DATABASE = "nsrep_flow_collection";
 		// 类信息：类名、对象名（一般是【类名】的首字母小些）、类说明、时间
-		public static final String TABLE = "trex_task";
-		public static final String entityNameLow = "trexTask";
-		public static final String CLASSCOMMENT = "TrexTask";
+		public static final String TABLE = "flow_send_record";
+		public static final String entityNameLow = "flowSendRecord";
+		public static final String CLASSCOMMENT = "FlowSendRecord";
 		public static final String TIME = new Date().toString();
 		public static final String AGILE = new Date().getTime() + "";
 		// 路径信息，分开路径方便聚合工程项目，微服务项目
@@ -54,25 +54,25 @@ public class MyGenerator {
 		bi.setEntityComment(CLASSCOMMENT);
 		try {
 			bi = EntityInfoUtil.getInfo(bi);
-			String fileUrl = "D:\\project\\bc\\backend\\nsrep-flow-collection\\src\\main\\java\\";// 生成文件存放位置
+			String fileUrl = "D:/data/";// 生成文件存放位置
 			//开始生成文件
-			/*String aa1 = Generator.createEntity(fileUrl, bi).toString();
+			String aa1 = Generator.createEntity(fileUrl, bi).toString();
 			String aa2 = Generator.createDao(fileUrl, bi).toString(); 
 			String aa3 = Generator.createDaoImpl(fileUrl, bi).toString();
 			String aa4 = Generator.createService(fileUrl, bi).toString(); 
-			String aa5 = Generator.createServiceImpl(fileUrl, bi).toString(); */
+			String aa5 = Generator.createServiceImpl(fileUrl, bi).toString();
 			String aa6 = Generator.createController(fileUrl, bi).toString();
 			// 是否创建swagger配置文件
 			//String aa7 = Generator.createSwaggerConfig(fileUrl, bi).toString();
 			
-//			System.out.println(aa1);
-//			System.out.println(aa2);
-//			System.out.println(aa3);
-//			System.out.println(aa4);
-//			System.out.println(aa5);
+			System.out.println(aa1);
+			System.out.println(aa2);
+			System.out.println(aa3);
+			System.out.println(aa4);
+			System.out.println(aa5);
 			System.out.println(aa6);
 //			System.out.println(aa7);
-			
+
 			//System.out.println(aa7);
 		} catch (SQLException e) {
 			e.printStackTrace();
