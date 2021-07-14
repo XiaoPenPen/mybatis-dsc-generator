@@ -1,7 +1,6 @@
 package ${serviceImplUrl};
 
 import ${entityUrl}.${entityName};
-import ${daoUrl}.${entityName}Dao;
 import ${serviceUrl}.${entityName}Service;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

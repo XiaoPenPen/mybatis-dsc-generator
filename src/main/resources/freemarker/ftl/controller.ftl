@@ -31,7 +31,7 @@ public class ${entityName}Controller{
     /**
      * 新增
      */
-    @PutMapping("/${entityNameLow}")
+    @PostMapping("/${entityNameLow}")
     <#if isSwagger=="true" >
     @ApiOperation(value = "新增")
     </#if>
@@ -42,35 +42,35 @@ public class ${entityName}Controller{
 
     /**
      * 批量删除
-     * @param   ids
+     * @param   ${entityNameLow}Ids
      */
     @DeleteMapping("/${entityNameLow}")
     <#if isSwagger=="true" >
     @ApiOperation(value = "批量删除")
     </#if>
-    public Result delete(@RequestParam List<String> ids){
-        ${entityNameLow}Service.removeByIds(ids);
+    public Result delete(@RequestParam List<String> ${entityNameLow}Ids){
+        ${entityNameLow}Service.removeByIds(${entityNameLow}Ids);
         return Result.init();
     }
 
     /**
     * 删除单个
-    * @param   id
+    * @param   ${entityNameLow}Id
     */
-    @DeleteMapping("/${entityNameLow}/{id}")
+    @DeleteMapping("/${entityNameLow}/{${entityNameLow}Id}")
     <#if isSwagger=="true" >
     @ApiOperation(value = "删除单个")
     </#if>
-    public Result deleteById(@PathVariable String id){
-        ${entityNameLow}Service.removeById(id);
+    public Result deleteById(@PathVariable String ${entityNameLow}Id){
+        ${entityNameLow}Service.removeById(${entityNameLow}Id);
         return Result.init();
     }
 
     /**
     * 修改
-    * @param   trexTask
+    * @param   ${entityNameLow}
     */
-    @PostMapping("/${entityNameLow}")
+    @PutMapping("/${entityNameLow}")
     <#if isSwagger=="true" >
     @ApiOperation(value = "修改")
     </#if>
@@ -87,7 +87,7 @@ public class ${entityName}Controller{
     <#if isSwagger=="true" >
     @ApiOperation(value = "查询列表")
     </#if>
-    public Result list${entityName}s(@RequestParam @ApiParam("当前页码") Integer pageIndex,@RequestParam @ApiParam("当前页大小") Integer pageSize){
+    public Result list${entityName}s(@RequestParam @ApiParam("当前页码") Integer pageIndex, @RequestParam @ApiParam("当前页大小") Integer pageSize){
         IPage page = ${entityNameLow}Service.getBaseMapper().selectPage(new Page<>(pageIndex, pageSize), null);
         return Result.init(page);
     }
@@ -96,12 +96,12 @@ public class ${entityName}Controller{
     * 查询单个
     * @param
     */
-    @GetMapping("/${entityNameLow}/{id}")
+    @GetMapping("/${entityNameLow}/{${entityNameLow}Id}")
     <#if isSwagger=="true" >
     @ApiOperation(value = "查询单个")
     </#if>
-    public Result get(@PathVariable String id){
-        ${entityName} ${entityNameLow} = ${entityNameLow}Service.getById(id);
+    public Result get(@PathVariable String ${entityNameLow}Id){
+        ${entityName} ${entityNameLow} = ${entityNameLow}Service.getById(${entityNameLow}Id);
         return Result.init(${entityNameLow});
     }
 

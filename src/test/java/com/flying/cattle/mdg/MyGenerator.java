@@ -21,27 +21,28 @@ import com.github.flying.cattle.mdg.util.MySqlToJavaUtil;
  */
 public class MyGenerator {
 		// 基础信息：项目名、作者、版本
-		public static final String PROJECT = "流量采集";
+		public static final String PROJECT = "";
 		public static final String AUTHOR = "XCP";
 		public static final String VERSION = "V1.0";
+		public static final String BACKAGE_PRIRIEX = "com.ruanji.training";
 		// 数据库连接信息：连接URL、用户名、秘密、数据库名
-		public static final String URL = "jdbc:mysql://localhost:3306/nsrep_flow_collection?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=true&serverTimezone=UTC";
+		public static final String URL = "jdbc:mysql://172.18.100.4:3306/nsrep_training?useSSL=false&useUnicode=true&characterEncoding=utf-8";
 		public static final String NAME = "root";
-		public static final String PASS = "root";
-		public static final String DATABASE = "nsrep_flow_collection";
+		public static final String PASS = "mysql";
+		public static final String DATABASE = "nsrep_training";
 		// 类信息：类名、对象名（一般是【类名】的首字母小些）、类说明、时间
-		public static final String TABLE = "flow_send_record";
-		public static final String entityNameLow = "flowSendRecord";
-		public static final String CLASSCOMMENT = "FlowSendRecord";
+		public static final String TABLE = "training_task";
+		public static final String entityNameLow = "trainingTask";
+		public static final String CLASSCOMMENT = "TrainingTask";
 		public static final String TIME = new Date().toString();
 		public static final String AGILE = new Date().getTime() + "";
 		// 路径信息，分开路径方便聚合工程项目，微服务项目
-		public static final String ENTITY_URL = "com.heetian.flow.collection.entity";
-		public static final String DAO_URL = "com.heetian.flow.collection.mapper";
+		public static final String ENTITY_URL = BACKAGE_PRIRIEX + ".entity";
+		public static final String DAO_URL = BACKAGE_PRIRIEX + ".mapper";
 		public static final String XML_URL = "";
-		public static final String SERVICE_URL = "com.heetian.flow.collection.service";
-		public static final String SERVICE_IMPL_URL = "com.heetian.flow.collection.service.impl";
-		public static final String CONTROLLER_URL = "com.heetian.flow.collection.controller";
+		public static final String SERVICE_URL = BACKAGE_PRIRIEX + ".service";
+		public static final String SERVICE_IMPL_URL = BACKAGE_PRIRIEX + ".service.impl";
+		public static final String CONTROLLER_URL = BACKAGE_PRIRIEX + ".controller";
 		//是否是Swagger配置
 		public static final String IS_SWAGGER = "true";
 		
@@ -54,7 +55,7 @@ public class MyGenerator {
 		bi.setEntityComment(CLASSCOMMENT);
 		try {
 			bi = EntityInfoUtil.getInfo(bi);
-			String fileUrl = "D:/data/";// 生成文件存放位置
+			String fileUrl = "D:/project/my/nsrep-training/src/main/java/";// 生成文件存放位置
 			//开始生成文件
 			String aa1 = Generator.createEntity(fileUrl, bi).toString();
 			String aa2 = Generator.createDao(fileUrl, bi).toString(); 
